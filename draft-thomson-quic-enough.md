@@ -52,7 +52,7 @@ author:
 normative:
   RESET-AT: I-D.seemann-quic-reliable-stream-reset
   QUIC: RFC9000
-  
+
 informative:
 
 
@@ -80,14 +80,14 @@ This document describes the ENOUGH frame in {{enough}}, which provides an analog
 
 A QUIC ENOUGH frame (0xTBD) is shown in {{fig-enough}}.
 
-```
+~~~
 ENOUGH Frame {
   Type (i) = 0xTBD,
   Stream ID (i),
   Application Protocol Error Code (i),
   Offset (i),
 }
-```
+~~~
 {: #fig-enough title="The QUIC ENOUGH Frame Format"}
 
 Like STOP_SENDING, an ENOUGH frame can be sent for streams in the "Recv" or "Size Known" states; see {{Section 3.2 of QUIC}}. Receiving a STOP_SENDING frame for a locally initiated stream that has not yet been created MUST be treated as a connection error of type STREAM_STATE_ERROR; see {{Section 20.1 of QUIC}}. An endpoint that receives an ENOUGH  frame for a receive-only stream MUST terminate the connection with error STREAM_STATE_ERROR.
